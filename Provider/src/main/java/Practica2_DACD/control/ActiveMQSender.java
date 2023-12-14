@@ -1,12 +1,12 @@
 package Practica2_DACD.control;
 
-import javax.jms.*;
-
 import org.apache.activemq.ActiveMQConnectionFactory;
 
+import javax.jms.*;
+
 public class ActiveMQSender {
-    private String brokerUrl;
     private final ConnectionFactory connectionFactory;
+    private final String brokerUrl;
 
     public ActiveMQSender(String brokerUrl) {
         this.brokerUrl = brokerUrl;

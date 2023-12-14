@@ -1,10 +1,10 @@
 package Practica2_DACD;
 
-import javax.jms.*;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.apache.activemq.ActiveMQConnectionFactory;
+
+import javax.jms.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -16,8 +16,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 public class FileCreator {
-    private String brokerUrl;
-    private String topic;
+    private final String brokerUrl;
+    private final String topic;
 
     public FileCreator(String brokerUrl, String topic) {
         this.brokerUrl = brokerUrl;
@@ -38,8 +38,7 @@ public class FileCreator {
 
             while (true) { // Replace with a more robust condition or signal
                 Message message = consumer.receive();
-                if (message instanceof TextMessage) {
-                    TextMessage textMessage = (TextMessage) message;
+                if (message instanceof TextMessage textMessage) {
                     String jsonPayload = textMessage.getText();
                     storeEvent(jsonPayload);
                 }
@@ -76,7 +75,8 @@ public class FileCreator {
     private void storeEvent(String jsonPayload) {
         // Deserialize the JSON payload to extract the 'ts' field
         Gson gson = new Gson();
-        Type type = new TypeToken<Map<String, Object>>(){}.getType();
+        Type type = new TypeToken<Map<String, Object>>() {
+        }.getType();
         Map<String, Object> eventMap = gson.fromJson(jsonPayload, type);
         double ts = (double) eventMap.get("ts");
         Instant eventTime = Instant.ofEpochSecond((long) ts);

@@ -38,7 +38,8 @@ public class EventStoreBuilder implements MessageListener {
 
                 // Deserialize the JSON payload to extract the 'ts' field
                 Gson gson = new Gson();
-                Type type = new TypeToken<Map<String, Object>>(){}.getType();
+                Type type = new TypeToken<Map<String, Object>>() {
+                }.getType();
                 Map<String, Object> eventMap = gson.fromJson(text, type);
                 String tsString = (String) eventMap.get("ts");
 

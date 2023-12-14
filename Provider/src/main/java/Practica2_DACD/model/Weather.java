@@ -4,15 +4,15 @@ import java.sql.Timestamp;
 import java.time.Instant;
 
 public class Weather {
-    private Instant predictionTime;
-    private Timestamp ts;
-    private String ss;
-    private double temp;
-    private double pop;
-    private double humidity;
-    private double clouds;
-    private double windSpeed;
-    private Location Location;
+    private final Instant predictionTime;
+    private final Timestamp ts;
+    private final String ss;
+    private final double temp;
+    private final double pop;
+    private final double humidity;
+    private final double clouds;
+    private final double windSpeed;
+    private final Location Location;
 
     public Weather(Instant predictionTime, Timestamp ts, String ss, double temp, double pop, double humidity, double clouds, double windSpeed, Location locations) {
         this.predictionTime = predictionTime;
