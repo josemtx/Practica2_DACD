@@ -9,8 +9,9 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>Provider</module>
+        <module>PredictionProvider</module>
         <module>EventStoreBuilder</module>
+        <module>ComparationProvider</module>
     </modules>
 
     <properties>
