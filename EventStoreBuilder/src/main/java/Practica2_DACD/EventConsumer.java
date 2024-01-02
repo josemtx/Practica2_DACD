@@ -52,31 +52,40 @@ public class EventConsumer {
     }
 
     private void processMessage(String json, String topicName) throws IOException {
-        if (json != null && json.trim().startsWith("{")) {
-            // Manejo de objeto JSON
-            JSONObject jsonObject = new JSONObject(json);
-            String ts = jsonObject.optString("ts");
-            String ss = jsonObject.optString("ss");
-
-            if (!ts.isEmpty() && !ss.isEmpty()) {
-                String fileName = constructFileName(topicName, ss, ts);
-                appendToFile(fileName, json);
-            }
-        } else if (json != null && json.trim().startsWith("[")) {
-            // Manejo de arreglo JSON
-            JSONArray jsonArray = new JSONArray(json);
-            // Aquí puedes procesar el arreglo JSON como lo necesites
-            // Por ejemplo, escribir cada objeto del arreglo en un archivo
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                // Aquí deberías determinar cómo manejar estos objetos
-                // Por ejemplo, podrías extraer un campo específico o simplemente escribir el objeto en un archivo
-            }
+        if ("comparison.Results".equals(topicName)) {
+            // Tratamiento especial para 'comparison.Results'
+            String fileName = constructFileNameForComparisonResults(json);
+            appendToFile(fileName, json);
         } else {
-            System.err.println("Invalid JSON message: " + json);
+            // Tratamiento para otros topics
+            if (json != null && json.trim().startsWith("{")) {
+                // Manejo de objeto JSON
+                JSONObject jsonObject = new JSONObject(json);
+                String ts = jsonObject.optString("ts");
+                String ss = jsonObject.optString("ss");
+
+                if (!ts.isEmpty() && !ss.isEmpty()) {
+                    String fileName = constructFileName(topicName, ss, ts);
+                    appendToFile(fileName, json);
+                }
+            } else if (json != null && json.trim().startsWith("[")) {
+                // Manejo de arreglo JSON
+                JSONArray jsonArray = new JSONArray(json);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    // Aquí podrías manejar estos objetos como necesites
+                }
+            } else {
+                System.err.println("Invalid JSON message: " + json);
+            }
         }
     }
 
+    private String constructFileNameForComparisonResults(String json) {
+        // Usar un timestamp actual para el nombre del archivo
+        String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        return rootDirectory + "/datalake/eventstore/comparison.Results/" + timestamp + ".events";
+    }
 
     private String constructFileName(String topic, String ss, String ts) throws IOException {
         SimpleDateFormat sourceFormat = new SimpleDateFormat("MMM dd, yyyy, h:mm:ss a", Locale.ENGLISH);
