@@ -44,7 +44,7 @@ public class EventStoreBuilder implements MessageListener {
                 String tsString = (String) eventMap.get("ts");
 
                 // Parse the 'ts' field as an Instant
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy, h:mm:ss a", Locale.ENGLISH);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy, h:mm:ss a", Locale.ENGLISH);
                 LocalDateTime dateTime = LocalDateTime.parse(tsString, formatter);
                 Instant ts = dateTime.atZone(ZoneId.systemDefault()).toInstant();
 
