@@ -6,8 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -18,9 +17,9 @@ public class Response {
         String formattedCheckOut = checkOut.format(dateFormat);
 
         String apiUrl = "https://data.xotelo.com/api/rates";
-        String queryString = "hotel_key=" + URLEncoder.encode(hotel_key, "UTF-8") +
-                "&chk_in=" + URLEncoder.encode(formattedCheckIn, "UTF-8") +
-                "&chk_out=" + URLEncoder.encode(formattedCheckOut, "UTF-8");
+        String queryString = "hotel_key=" + URLEncoder.encode(hotel_key, StandardCharsets.UTF_8) +
+                "&chk_in=" + URLEncoder.encode(formattedCheckIn, StandardCharsets.UTF_8) +
+                "&chk_out=" + URLEncoder.encode(formattedCheckOut, StandardCharsets.UTF_8);
 
         URL url = new URL(apiUrl + "?" + queryString);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();

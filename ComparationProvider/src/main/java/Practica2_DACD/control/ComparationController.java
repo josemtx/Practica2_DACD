@@ -2,6 +2,7 @@ package Practica2_DACD.control;
 
 import Practica2_DACD.model.Book;
 
+import javax.jms.JMSException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -9,7 +10,7 @@ import java.util.List;
 
 public class ComparationController {
 
-    public void runComparationProvider() {
+    public void runComparationProvider() throws JMSException {
         // Crear una lista de objetos Book con fechas definidas
         List<Book> books = Arrays.asList(
                 new Book("g188590-d232321", LocalDate.of(2024, 1, 25), LocalDate.of(2024, 1, 26)),

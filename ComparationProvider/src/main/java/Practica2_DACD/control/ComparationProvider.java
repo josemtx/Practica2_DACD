@@ -4,6 +4,7 @@ import Practica2_DACD.model.Book;
 import Practica2_DACD.model.Rates;
 import com.google.gson.*;
 
+import javax.jms.JMSException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +13,12 @@ public class ComparationProvider {
 
     private final List<Book> bookList;
     private final ActiveMQSender activeMQSender;
+    private final ActiveMQConsumer activeMQConsumer;
 
-    public ComparationProvider(List<Book> bookList, String brokerUrl) {
+    public ComparationProvider(List<Book> bookList, String brokerUrl) throws JMSException {
         this.bookList = bookList;
         this.activeMQSender = new ActiveMQSender(brokerUrl);
+        this.activeMQConsumer = new ActiveMQConsumer(brokerUrl, "comparison.Results", "datalake");
     }
 
     public void fetchAndSendComparationData() throws IOException {
@@ -25,12 +28,14 @@ public class ComparationProvider {
 
         // Enviar la información al topic 'comparison.Results'
         activeMQSender.sendMessage("comparison.Results", json);
+        System.out.println("Datos enviados al topic 'comparison.Results' con éxito.");
     }
 
     private List<Rates> fetchComparationData() throws IOException {
         List<Rates> ratesList = new ArrayList<>();
         for (Book book : bookList) {
             String response = new Response().sendGetRequest(book.getHotel_Key(), book.getCheckIn(), book.getCheckOut());
+            System.out.println("Response from API: " + response); // Imprimir la respuesta de la API
             JsonObject jsonObject = convertResponseToJson(response);
             processComparationData(jsonObject, ratesList);
         }
