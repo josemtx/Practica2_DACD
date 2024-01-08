@@ -12,6 +12,7 @@
         <module>PredictionProvider</module>
         <module>EventStoreBuilder</module>
         <module>ComparationProvider</module>
+        <module>Business-Unit</module>
     </modules>
 
     <properties>
