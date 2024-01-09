@@ -19,7 +19,7 @@ El propósito de este proyecto inacabado es ofrecerle al usuario un destino ópt
 **Módulo Business-Unit**: consume los datos de los topics, procesa los datos seleccionando y descartando aquellos que no tengan que ver con el modelo de negocio y crea y maneja la inserción de estos datos en las tablas para su posterior análisis.
 
 ## ¿Qué he de cambiar/hacer?
-  Casi todos los cambios que tienen que ver con el funcionamiento se encuentran en el módulo Business-Unity la interfaz de usuario, el resto de módulos cumple como mínimo con lo esperado en el proyecto.
+  Casi todos los cambios que tienen que ver con el funcionamiento se encuentran en el módulo Business-Unit y la interfaz de usuario, el resto de módulos cumple como mínimo con lo esperado en el proyecto.
 1. **Personalización de la consulta**: Ahora mismo la aplicación esta diseñada para escoger datos de las Islas Canarias y de unos hoteles de Amsterdam, esto se hizo a modo de prueba del funcionamiento, he de hacer que sea el usuario quien elija el lugar (introduciendo lat y lon), la duración de su estancia, (introduciendo fecha de check_in y check_out) y su hotel, (cambiando la hotel key)
  
 2. **Cruce de datos**: He de relacionar los datos referentes al clima con los referentes a los precios de los hoteles, para ello esta creada la tabla Destinations, pero me falta la lógica para implementar el cruce.
