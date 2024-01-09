@@ -5,7 +5,7 @@
 **School**: School of Computer Engineering  
 **University**: Universidad de Las Palmas de Gran Canaria (ULPGC)
 
-## Functionalidad
+## Funcionalidad
 El propósito de este proyecto inacabado es ofrecerle al usuario un destino óptimo en base a sus preferencias tanto climáticas como de presupuesto. Por ejemplo, si un usuario prefiere temperaturas entre 20 y 25 grados Celsius, el sistema filtraría los registros de la tabla Weather para encontrar coincidencias en ese rango durante las fechas especificadas. Paralelamente, el sistema puede consultar la tabla HotelRates para encontrar opciones de alojamiento que se ajusten al presupuesto del usuario. Una vez identificados los destinos con el clima deseado y las opciones de alojamiento adecuadas, el sistema debería cruzar estos datos para encontrar coincidencias. Esto significa buscar destinos donde tanto el clima como las opciones de alojamiento cumplen con las preferencias del usuario. El sistema generaría una lista de recomendaciones que incluiría destinos, información climática para las fechas seleccionadas, y opciones de hoteles con sus respectivas tarifas. Dado que tanto las condiciones climáticas como las tarifas de los hoteles pueden cambiar, el sistema debería actualizarse periódicamente para reflejar la información más reciente.
 
 ## ¿Qué funciona ahora mismo?
@@ -20,14 +20,14 @@ El propósito de este proyecto inacabado es ofrecerle al usuario un destino ópt
 
 ## ¿Qué he de cambiar/hacer?
   Casi todos los cambios que tienen que ver con el funcionamiento se encuentran en el módulo Business-Unit y la interfaz de usuario, el resto de módulos cumple como mínimo con lo esperado en el proyecto.
-1. **Personalización de la consulta**: Ahora mismo la aplicación esta diseñada para escoger datos de las Islas Canarias y de unos hoteles de Amsterdam, esto se hizo a modo de prueba del funcionamiento, he de hacer que sea el usuario quien elija el lugar (introduciendo lat y lon), la duración de su estancia, (introduciendo fecha de check_in y check_out) y su hotel, (cambiando la hotel key)
+1. **Personalización de la consulta**: Implementar una interfaz de usuario que permita introducir coordenadas, fechas y claves de hotel para personalizar las búsquedas.
  
-2. **Cruce de datos**: He de relacionar los datos referentes al clima con los referentes a los precios de los hoteles, para ello esta creada la tabla Destinations, pero me falta la lógica para implementar el cruce.
+2. **Cruce de datos**:  Desarrollar un algoritmo en DestinationsDataManager que relacione el clima con los precios hoteleros, llenando la tabla Destinations para las consultas.
 
-3. **Actualización de los datos**: Ahora mismo el módulo Business-Unit no actualiza las tablas con los nuevos datos que vienen de los topics, sólo inserta los nuevos mensajes en las tablas, esto no es nada difícil de implementar, con la sentencia UPDATE.
+3. **Actualización de los datos**:  Establecer procedimientos periódicos que actualicen las tablas con los últimos datos recibidos, garantizando información reciente. Esto no es nada difícil de implementar, con la sentencia UPDATE.
 
-4. **Interfaz de usuario**: Tengo que hacer una interfaz amigable en la medida de lo posible que permita la consulta del datamart de manera sencilla y precisa.
+4. **Interfaz de usuario**: Diseñar una interfaz gráfica que facilite la consulta del datamart de manera sencilla y precisa.
 
-5. **Principios SOLID**: El proyecto actualmente incumple varios de estos protocolos, con algo de tiempo sería posible aplicarle más modularidad, restarle acoplamiento y demás detalles. El proyecto debido a problemas de planificación esta diseñado para que "funcione" a secas, sin corregir errores de estilo ni de formato. Además no todo el código esta en inglés y hay muchos comentarios y codigo zombie.
+5. **Principios SOLID**:  Refactorizar el código para cumplir con SOLID y buenas prácticas.
 
 6. **Cambio de nombres**: Hay variables clases y métodos que podrían tener un nombre mejor o directamente tener un nombre que correspponda a la funcionalidad, pero arreglar eso es muy sencillo.
