@@ -1,12 +1,12 @@
 # Sistema de recomendación de viajes.
-### Application Development for Data Science(DACD)
-**Course**: Second  
-**Degree**: Bachelor in Data Science and Engineering  
-**School**: School of Computer Engineering  
-**University**: Universidad de Las Palmas de Gran Canaria (ULPGC)
+### Desarrollo de Aplicaciones para Ciencia de datos(DACD)
+**Curso**: Segundo  
+**Grado**: Grado en Ciencia e Ingeniería de Datos
+**Escuela**: Escuela de Ingeniería Informática
+**Universidad**: Universidad de Las Palmas de Gran Canaria (ULPGC)
 
 ## Funcionalidad
-El propósito de este proyecto inacabado es ofrecerle al usuario un destino óptimo en base a sus preferencias tanto climáticas como de presupuesto. Por ejemplo, si un usuario prefiere temperaturas entre 20 y 25 grados Celsius, el sistema filtraría los registros de la tabla Weather para encontrar coincidencias en ese rango durante las fechas especificadas. Paralelamente, el sistema puede consultar la tabla HotelRates para encontrar opciones de alojamiento que se ajusten al presupuesto del usuario. Una vez identificados los destinos con el clima deseado y las opciones de alojamiento adecuadas, el sistema debería cruzar estos datos para encontrar coincidencias. Esto significa buscar destinos donde tanto el clima como las opciones de alojamiento cumplen con las preferencias del usuario. El sistema generaría una lista de recomendaciones que incluiría destinos, información climática para las fechas seleccionadas, y opciones de hoteles con sus respectivas tarifas. Dado que tanto las condiciones climáticas como las tarifas de los hoteles pueden cambiar, el sistema debería actualizarse periódicamente para reflejar la información más reciente.
+El proyecto tiene como propósito sugerir destinos basándose en el clima y presupuesto del usuario. Se filtrarían datos climáticos para ajustarse a preferencias del usuario como la temperatura o la probabilidad de precipitación y se cruzarían con tarifas hoteleras, para proponer coincidencias ideales ajustadas al presupuesto del usuario. El resultado sería una lista de lugares con condiciones climáticas de la preferencia del usuario y opciones de alojamiento adecuadas al bolsillo del cliente, estas listas se acrualizarían periódicamente para mantener la relevancia de la información.
 
 ## ¿Qué funciona ahora mismo?
 
