@@ -1,9 +1,13 @@
 # Sistema de recomendación de viajes.
 ### Desarrollo de Aplicaciones para Ciencia de datos(DACD)
-**Curso**: Segundo  
+**Curso**: Segundo
+
 **Grado**: Grado en Ciencia e Ingeniería de Datos
+
 **Escuela**: Escuela de Ingeniería Informática
+
 **Universidad**: Universidad de Las Palmas de Gran Canaria (ULPGC)
+
 
 ## Funcionalidad
 El proyecto tiene como propósito sugerir destinos basándose en el clima y presupuesto del usuario. Se filtrarían datos climáticos para ajustarse a preferencias del usuario como la temperatura o la probabilidad de precipitación y se cruzarían con tarifas hoteleras, para proponer coincidencias ideales ajustadas al presupuesto del usuario. El resultado sería una lista de lugares con condiciones climáticas de la preferencia del usuario y opciones de alojamiento adecuadas al bolsillo del cliente, estas listas se acrualizarían periódicamente para mantener la relevancia de la información.
