@@ -56,7 +56,6 @@ public class DatabaseManager {
                     "name TEXT, " +
                     "rate REAL, " +
                     "tax REAL, " +
-                    "hotel_name TEXT, " + // Nuevo: nombre del hotel
                     "latitude REAL, " +    // Nuevo: latitud
                     "longitude REAL)");   // Nuevo: longitud
 

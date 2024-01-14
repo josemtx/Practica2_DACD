@@ -22,7 +22,7 @@ public class Book {
         return hotelKey;
     }
 
-    public String getHotelName() {
+    public String getName() {
         return hotelName;
     }
 

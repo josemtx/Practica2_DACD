@@ -1,8 +1,10 @@
 package Practica2_DACD;
 
 import Practica2_DACD.model.Book;
+import Practica2_DACD.model.Location;
 
 import javax.jms.JMSException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +17,20 @@ public class Main {
         DatabaseManager dbManager = new DatabaseManager(dbPath);
         dbManager.createTables();
 
+        // Crear una lista de objetos Book
+        List<Book> books = new ArrayList<>();
+        books.add(new Book("Paradisus", "g562818-d238899", LocalDate.parse("2024-01-15"), LocalDate.parse("2024-01-20"), new Location(27.99549, -15.41765)));
+        books.add(new Book("Melia Palacio De Isora", "g1773834-d945835", LocalDate.parse("2024-01-15"), LocalDate.parse("2024-01-20"), new Location(28.463850790803008, -16.25097353346818)));
+        books.add(new Book("La Palma  Princess", "g1175543-d638034", LocalDate.parse("2024-01-15"), LocalDate.parse("2024-01-20"), new Location(28.503323, -17.874559)));
+        books.add(new Book("Hotel Fariones", "g662290-d282771", LocalDate.parse("2024-01-15"), LocalDate.parse("2024-01-20"), new Location(28.965080860301025, -13.556148106209083)));
+        books.add(new Book("Evita Beach", "g1190272-d2645782", LocalDate.parse("2024-01-15"), LocalDate.parse("2024-01-20"), new Location(29.23141101200906, -13.503131221117982)));
+        books.add(new Book("Parador de El Hierro", "g187474-d277394", LocalDate.parse("2024-01-15"), LocalDate.parse("2024-01-20"), new Location(27.809920552606453, -17.91474223115781)));
+        books.add(new Book("Ibo Alfaro", "g674060-d670383", LocalDate.parse("2024-01-15"), LocalDate.parse("2024-01-20"), new Location(28.094369991798228, -17.109467831251514)));
+        books.add(new Book("Barcelo Corralejo", "g580322-d678447", LocalDate.parse("2024-01-15"), LocalDate.parse("2024-01-20"), new Location(28.728468, -13.857411)));
+
 
         // Instanciar los DataManagers
         WeatherDataManager weatherDataManager = new WeatherDataManager(dbManager);
-        List<Book> books = new ArrayList<>();
         ComparisonDataManager comparisonDataManager = new ComparisonDataManager(dbManager, books);
         DestinationsDataManager destinationsDataManager = new DestinationsDataManager(dbManager);
 
