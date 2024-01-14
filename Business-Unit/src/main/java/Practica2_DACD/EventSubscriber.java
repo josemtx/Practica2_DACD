@@ -8,10 +8,10 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 public class EventSubscriber {
-    private Session session;
+    private final Session session;
     private Connection connection;
-    private Map<String, MessageConsumer> consumers;
-    private String rootDirectory;
+    private final Map<String, MessageConsumer> consumers;
+    private final String rootDirectory;
 
     // Constructor actualizado
     public EventSubscriber(String brokerUrl, String clientID, String rootDirectory) throws JMSException {

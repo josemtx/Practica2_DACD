@@ -1,10 +1,10 @@
 package Practica2_DACD.model;
 
 import java.sql.Timestamp;
-import java.time.Instant;
+import java.time.LocalDate;
 
 public class Weather {
-    private final Instant predictionTime;
+    private final String predictionTime;
     private final Timestamp ts;
     private final String ss;
     private final double temp;
@@ -14,7 +14,8 @@ public class Weather {
     private final double windSpeed;
     private final Location Location;
 
-    public Weather(Instant predictionTime, Timestamp ts, String ss, double temp, double pop, double humidity, double clouds, double windSpeed, Location locations) {
+    public Weather(String predictionTime, Timestamp ts, String ss, double temp, double pop, double humidity, double clouds, double windSpeed, Location locations) {
+        LocalDate localDate = LocalDate.parse(predictionTime);
         this.predictionTime = predictionTime;
         this.ts = ts;
         this.ss = ss;
@@ -26,7 +27,7 @@ public class Weather {
         this.Location = locations;
     }
 
-    public Instant getTs() {
+    public String getTs() {
         return predictionTime;
     }
 

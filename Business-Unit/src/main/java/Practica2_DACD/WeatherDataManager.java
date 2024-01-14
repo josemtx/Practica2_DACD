@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class WeatherDataManager {
-    private DatabaseManager dbManager;
+    private final DatabaseManager dbManager;
 
     public WeatherDataManager(DatabaseManager dbManager) {
         this.dbManager = dbManager;

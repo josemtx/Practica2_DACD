@@ -1,6 +1,10 @@
 package Practica2_DACD;
 
+import Practica2_DACD.model.Book;
+
 import javax.jms.JMSException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,9 +15,11 @@ public class Main {
         DatabaseManager dbManager = new DatabaseManager(dbPath);
         dbManager.createTables();
 
+
         // Instanciar los DataManagers
         WeatherDataManager weatherDataManager = new WeatherDataManager(dbManager);
-        ComparisonDataManager comparisonDataManager = new ComparisonDataManager(dbManager);
+        List<Book> books = new ArrayList<>();
+        ComparisonDataManager comparisonDataManager = new ComparisonDataManager(dbManager, books);
         DestinationsDataManager destinationsDataManager = new DestinationsDataManager(dbManager);
 
         // Configurar la conexión al broker de mensajes y los topics

@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -52,7 +53,13 @@ public class PredictionProvider {
                 double humidity = jsonObjectMain.get("humidity").getAsDouble();
                 double clouds = element.getAsJsonObject().getAsJsonObject("clouds").get("all").getAsDouble();
                 double windSpeed = element.getAsJsonObject().getAsJsonObject("wind").get("speed").getAsDouble();
-                Instant predictionTime = Instant.ofEpochSecond(element.getAsJsonObject().get("dt").getAsLong());
+
+                // Asumiendo que dt_txt tiene un formato como '2024-01-14 15:00:00'
+                LocalDateTime dateTime = LocalDateTime.parse(dt_txt, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+                // Formatear la fecha al formato deseado
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                String formattedDate = dateTime.format(formatter);
 
                 // Obtener el instante actual en UTC
                 ZonedDateTime utcNow = ZonedDateTime.now(ZoneId.of("UTC"));
@@ -61,7 +68,7 @@ public class PredictionProvider {
                 Timestamp ts = Timestamp.from(utcNow.toInstant());
 
                 String ss = "OpenWeather";
-                Weather weatherData = new Weather(predictionTime, ts, ss, temperature, pop, humidity, clouds, windSpeed, location);
+                Weather weatherData = new Weather(formattedDate, ts, ss, temperature, pop, humidity, clouds, windSpeed, location);
                 weatherDataList.add(weatherData);
             }
         }

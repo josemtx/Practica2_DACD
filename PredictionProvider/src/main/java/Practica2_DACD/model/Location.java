@@ -1,8 +1,8 @@
 package Practica2_DACD.model;
 
 public class Location {
-    private final double lat;
-    private final double lon;
+    public final double lat;
+    public final double lon;
 
     public Location(double lat, double lon) {
         this.lat = lat;

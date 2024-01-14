@@ -55,20 +55,24 @@ public class DatabaseManager {
                     "code TEXT, " +
                     "name TEXT, " +
                     "rate REAL, " +
-                    "tax REAL)");
+                    "tax REAL, " +
+                    "hotel_name TEXT, " + // Nuevo: nombre del hotel
+                    "latitude REAL, " +    // Nuevo: latitud
+                    "longitude REAL)");   // Nuevo: longitud
 
             // Crear tabla Destinations
             statement.execute("CREATE TABLE IF NOT EXISTS Destinations (" +
                     "destination_id INTEGER PRIMARY KEY, " +
+                    "hotel_key TEXT, " +
                     "check_in TEXT, " +
                     "check_out TEXT, " +
-                    "name TEXT, " +
-                    "temperature REAL, " +
-                    "pop REAL, " +
-                    "rate REAL, " +
-                    "tax REAL, " +
+                    "average_rate REAL, " +
+                    "currency TEXT, " +
                     "latitude REAL, " +
-                    "longitude REAL)");
+                    "longitude REAL, " +
+                    "average_temperature REAL, " +
+                    "probability_of_precipitation REAL)"
+            );
         } catch (SQLException e) {
             System.out.println("Error creating tables: " + e.getMessage());
         }

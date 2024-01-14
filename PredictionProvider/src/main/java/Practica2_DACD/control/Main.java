@@ -26,12 +26,12 @@ public class Main {
         List<Location> locations = Arrays.asList(
                 new Location(27.99549, -15.41765),
                 new Location(28.463850790803008, -16.25097353346818),
-                new Location(28.50047229032077, -16.25097353346818),
+                new Location(28.503323, -17.874559),
                 new Location(28.965080860301025, -13.556148106209083),
                 new Location(29.23141101200906, -13.503131221117982),
                 new Location(27.809920552606453, -17.91474223115781),
                 new Location(28.094369991798228, -17.109467831251514),
-                new Location(28.684160726614596, -17.76582062032028)
+                new Location(28.728468, -13.857411)
         );
 
         // Crear una instancia de OpenWeatherMapProvider
