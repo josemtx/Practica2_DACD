@@ -1,9 +1,6 @@
 package Practica2_DACD;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DatabaseManager {
     private Connection connection;
@@ -78,5 +75,28 @@ public class DatabaseManager {
         }
     }
 
-    // Métodos adicionales para insertar y consultar datos irían aquí
+    // Método para obtener la información del destino
+    public DestinationInfo getDestinationInfo(String hotelName) {
+        String sql = "SELECT hotel_name, average_rate, currency, average_temperature, probability_of_precipitation " +
+                "FROM Destinations WHERE hotel_name = ?";
+
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setString(1, hotelName);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                // Crear una nueva instancia de DestinationInfo con los valores obtenidos
+                return new DestinationInfo(
+                        rs.getString("hotel_name"),
+                        rs.getDouble("average_rate"),
+                        rs.getString("currency"),
+                        rs.getDouble("average_temperature"),
+                        rs.getDouble("probability_of_precipitation")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
