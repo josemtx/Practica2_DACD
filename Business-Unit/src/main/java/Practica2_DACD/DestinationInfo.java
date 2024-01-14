@@ -19,36 +19,36 @@ public class DestinationInfo {
         return hotelName;
     }
 
-    public double getAverageRate() {
-        return averageRate;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public double getAverageTemperature() {
-        return averageTemperature;
-    }
-
-    public double getProbabilityOfPrecipitation() {
-        return probabilityOfPrecipitation;
-    }
-
     public void setHotelName(String hotelName) {
         this.hotelName = hotelName;
+    }
+
+    public double getAverageRate() {
+        return averageRate;
     }
 
     public void setAverageRate(double averageRate) {
         this.averageRate = averageRate;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
     public void setCurrency(String currency) {
         this.currency = currency;
     }
 
+    public double getAverageTemperature() {
+        return averageTemperature;
+    }
+
     public void setAverageTemperature(double averageTemperature) {
         this.averageTemperature = averageTemperature;
+    }
+
+    public double getProbabilityOfPrecipitation() {
+        return probabilityOfPrecipitation;
     }
 
     public void setProbabilityOfPrecipitation(double probabilityOfPrecipitation) {

@@ -9,9 +9,9 @@ import java.util.function.Consumer;
 
 public class EventSubscriber {
     private final Session session;
-    private Connection connection;
     private final Map<String, MessageConsumer> consumers;
     private final String rootDirectory;
+    private Connection connection;
 
     // Constructor actualizado
     public EventSubscriber(String brokerUrl, String clientID, String rootDirectory) throws JMSException {

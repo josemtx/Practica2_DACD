@@ -1,15 +1,19 @@
 package Practica2_DACD;
 
 import java.util.Scanner;
-import java.util.Date;
-import java.util.List;
 
 public class TextInterfaceApp {
 
-    private DatabaseManager dbManager;
+    private final DatabaseManager dbManager;
 
     public TextInterfaceApp(DatabaseManager dbManager) {
         this.dbManager = dbManager;
+    }
+
+    public static void main(String[] args) {
+        DatabaseManager dbManager = new DatabaseManager("datamart.db");
+        TextInterfaceApp app = new TextInterfaceApp(dbManager);
+        app.run();
     }
 
     public void run() {
@@ -40,13 +44,5 @@ public class TextInterfaceApp {
             System.out.println("Información no disponible para el hotel especificado.");
         }
     }
-
-    public static void main(String[] args) {
-        DatabaseManager dbManager = new DatabaseManager("ruta/a/tu/base/de/datos");
-        TextInterfaceApp app = new TextInterfaceApp(dbManager);
-        app.run();
-    }
 }
 
-// Debes implementar los métodos necesarios en DatabaseManager para que esto funcione
-// Por ejemplo, getDestinationInfo que devuelve un objeto DestinationInfo

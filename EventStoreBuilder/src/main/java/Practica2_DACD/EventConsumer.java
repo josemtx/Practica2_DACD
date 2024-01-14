@@ -52,7 +52,7 @@ public class EventConsumer {
     }
 
     private void processMessage(String json, String topicName) throws IOException {
-        if ("comparison.Results".equals(topicName)) {
+        if ("comparison.Results" .equals(topicName)) {
             // Tratamiento especial para 'comparison.Results'
             String fileName = constructFileNameForComparisonResults(json);
             appendToFile(fileName, json);
