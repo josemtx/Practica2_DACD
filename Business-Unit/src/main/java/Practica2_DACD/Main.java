@@ -51,6 +51,9 @@ public class Main {
             destinationsDataManager.updateDestinationsData();
             System.out.println("Destinations data updated.");
 
+            TextInterfaceApp textInterfaceApp = new TextInterfaceApp(dbManager);
+            textInterfaceApp.run();
+
         } catch (JMSException e) {
             e.printStackTrace();
             System.out.println("Failed to subscribe to topics due to an error: " + e.getMessage());

@@ -10,12 +10,6 @@ public class TextInterfaceApp {
         this.dbManager = dbManager;
     }
 
-    public static void main(String[] args) {
-        DatabaseManager dbManager = new DatabaseManager("datamart.db");
-        TextInterfaceApp app = new TextInterfaceApp(dbManager);
-        app.run();
-    }
-
     public void run() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("datamart.db");

@@ -15,13 +15,16 @@
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.6.0</version> <!-- Asegúrate de usar la última versión disponible -->
                 <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>provider.Main</mainClass>
+                        </manifest>
+                    </archive>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-                    <archive>
-                        <format>zip</format>
-                    </archive>
                 </configuration>
                 <executions>
                     <execution>
@@ -69,7 +72,7 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.32
-            </version> <!-- Versión actualizada, comprueba la última versión en https://www.slf4j.org/download.html -->
+            </version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>

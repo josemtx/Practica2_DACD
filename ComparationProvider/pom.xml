@@ -11,17 +11,20 @@
 
     <artifactId>ComparationProvider</artifactId>
     <build>
-        <finalName>ComparatorProvider</finalName>
+        <finalName>PredictionProvider</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.6.0</version> <!-- Asegúrate de usar la última versión disponible -->
                 <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>comparationprovider.tuClasePrincipal</mainClass> <!-- Sustituye con tu paquete y clase principal -->
+                        </manifest>
+                    </archive>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-                    <archive>
-                        <format>zip</format>
-                    </archive>
                 </configuration>
                 <executions>
                     <execution>
