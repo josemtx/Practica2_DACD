@@ -62,6 +62,7 @@ public class DatabaseManager {
             // Crear tabla Destinations
             statement.execute("CREATE TABLE IF NOT EXISTS Destinations (" +
                     "destination_id INTEGER PRIMARY KEY, " +
+                    "hotel_name TEXT, " +
                     "hotel_key TEXT, " +
                     "check_in TEXT, " +
                     "check_out TEXT, " +
