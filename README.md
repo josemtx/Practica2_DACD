@@ -25,4 +25,4 @@ al bolsillo del cliente, estas listas se acrualizarían periódicamente para man
 Debido a errores durante el empaquetemiento no he podido hacer una release.
 El programa en sí funciona. Cumple con lo que me propuse. Ahora estoy en la fase de limpieza del código y aplicando los principios SOLID, que siempre vienen bien para dejar todo más prolijo.
 
-Tengo un error
+
